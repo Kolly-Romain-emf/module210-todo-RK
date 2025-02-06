@@ -1,4 +1,4 @@
-const apiEndpoint = "http://20.107.253.42:8080/api/tasks";
+const apiEndpoint = "https://backend.niceplant-1d986747.northeurope.azurecontainerapps.io/api/tasks";
 
 $(document).ready(function () {
   // Charger les tâches au démarrage
