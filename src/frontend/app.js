@@ -1,4 +1,4 @@
-const apiEndpoint = "https://backend.internal.yellowocean-196e6ebe.northeurope.azurecontainerapps.io";
+const apiEndpoint = "https://backend.internal.yellowocean-196e6ebe.northeurope.azurecontainerapps.io/api/tasks";
 
 $(document).ready(function () {
   // Charger les tâches au démarrage
