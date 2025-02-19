@@ -1,7 +1,11 @@
 {
-    "performance": 100,
-    "accessibility": 100,
-    "best-practices": 100,
-    "seo": 100
+    "ci": {
+      "assertions": {
+        "performance": ["error", { "minScore": 1 }],
+        "accessibility": ["error", { "minScore": 1 }],
+        "seo": ["error", { "minScore": 1 }],
+        "best-practices": ["error", { "minScore": 1 }]
+      }
+    }
   }
   
