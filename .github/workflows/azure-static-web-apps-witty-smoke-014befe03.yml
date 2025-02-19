@@ -52,8 +52,8 @@ jobs:
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: https://module-210.romainkolly.emf-informatique.ch
-          budgetPath: .github/lighthouse-budget.json
-          uploadArtifacts: true
+          budgetPath: .github\lighthouse-budget.json
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
       - name: Vérification des scores Lighthouse
