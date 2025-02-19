@@ -54,7 +54,8 @@ jobs:
         run: npm install -g @lhci/cli
 
       - name: Exécuter Lighthouse CI
-        run: lhci autorun
+        run: lhci autorun --collect.staticDistDir="./src/frontend"
+
 
 
 
