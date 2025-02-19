@@ -1,5 +1,9 @@
 {
-    "ci": {
+  "ci": {
+    "collect": {
+      "url": ["https://module-210.romainkolly.emf-informatique.ch"]
+    },
+    "assert": {
       "assertions": {
         "performance": ["error", { "minScore": 1 }],
         "accessibility": ["error", { "minScore": 1 }],
@@ -8,4 +12,4 @@
       }
     }
   }
-  
+}
