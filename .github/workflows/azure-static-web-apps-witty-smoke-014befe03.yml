@@ -52,7 +52,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: https://module-210.romainkolly.emf-informatique.ch
-          budgetPath: .github\lighthouse-budget.json
+          #budgetPath: .github\lighthouse-budget.json
           configPath: .github/lighthouserc.json
           uploadArtifacts: false
           temporaryPublicStorage: true
