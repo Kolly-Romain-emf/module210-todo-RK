@@ -22,7 +22,7 @@ jobs:
            echo "${{ secrets.KEY }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin "${{ env.REG_NAME }}"
       - name: buildImage
         run: |
-          docker build -t ${{env.IMAGE_NAME}}:latest -f src/backend/Dockerfile .
+          cd src\backend && docker build -t ${{env.IMAGE_NAME}}:latest .
 
       - name: tageLeBuild
         run: |
