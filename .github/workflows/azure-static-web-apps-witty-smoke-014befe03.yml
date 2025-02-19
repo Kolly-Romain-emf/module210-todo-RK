@@ -50,8 +50,10 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "." # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-        - run: lhci autorun
-        
+      - name: Exécuter Lighthouse CI
+        run: lhci autorun
+
+
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
