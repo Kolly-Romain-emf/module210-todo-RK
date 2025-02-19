@@ -53,6 +53,7 @@ jobs:
         with:
           urls: https://module-210.romainkolly.emf-informatique.ch
           budgetPath: .github\lighthouse-budget.json
+          configPath: .github/lighthouserc.json
           uploadArtifacts: false
           temporaryPublicStorage: true
 
