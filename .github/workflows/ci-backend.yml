@@ -20,7 +20,7 @@ jobs:
       - name: registryLogin
         run: |
            echo "${{ secrets.KEY }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin "${{ env.REG_NAME }}"
-      -name: buildImage
+      - name: buildImage
         run: |
           docker build -t ${{env.IMAGE_NAME}}:latest .
 
