@@ -19,6 +19,24 @@ jobs:
         with:
           submodules: true
           lfs: false
+          if : github.
+          
+      - name: Vérifier la présence de index.html
+        id: check_index
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "./src/frontend/index.html"
+
+      - name: indexExist
+        if: steps.check_index.outputs.files_exists == 'true'
+        run: echo "✅ Le fichier index.html existe."
+
+      - name: indexNotExist
+        if: steps.check_index.outputs.files_exists != 'true'
+        run: |
+          echo "❌ Erreur : index.html n’existe pas!"
+          exit 1
+            
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
