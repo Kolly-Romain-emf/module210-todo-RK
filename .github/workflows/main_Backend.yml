@@ -27,10 +27,11 @@ jobs:
         password: ${{ secrets.AzureAppService_ContainerPassword_fd2a227238eb4b7f8dd08d3135d7e676 }}
 
     - name: Build and push container image to registry
-      uses: docker/build-push-action@v3
+      uses: cd src/backend && docker/build-push-action@v3
       with:
         push: true
         tags: acr300622210.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_0a291819cc794e62829cb0ca5749afaf }}/todo-app:${{ github.sha }}
+        context: src/backend  
         file: src/backend/Dockerfile
 
   deploy:
