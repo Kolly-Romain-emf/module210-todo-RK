@@ -59,4 +59,17 @@ router.delete("/", async (req, res, next) => {
     }
 });
 
+// GET 
+router.get("/RK", async (req, res, next) => {
+    let conn;
+    try {
+        const result = await db.pool.query("select * from tasks");
+        res.send(result);
+    } catch (err) {
+        throw err;
+    } finally {
+        if (conn) return conn.release();
+    }
+});
+
 module.exports = router;
