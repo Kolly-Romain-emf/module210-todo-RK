@@ -7,8 +7,8 @@ on:
 
 env:
   REG_NAME: "exo.container-registry.com" # Nom du registre sans "azurecr.io"
-  IMAGE_NAME: "RK-backend-app" # Nom de votre image dans acr
-  CPLT_IMAGE_NAME: "${{env.REG_NAME}}"/c213-emf/${{env.IMAGE_NAME}}:latest
+  IMAGE_NAME: "backend-app" # Nom de votre image dans acr
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,11 +20,15 @@ jobs:
       - name: registryLogin
         run: |
            echo "${{ secrets.KEY }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin "${{ env.REG_NAME }}"
-
+           
       - name: buildImage
         run: |
-          cd src/backend && docker build -t CPLT_IMAGE_NAME .
+          cd src/backend && docker build -t ${{env.IMAGE_NAME}}:latest .
+
+      - name: tageLeBuild
+        run: |
+          docker tag ${{env.IMAGE_NAME}}:latest "${{env.REG_NAME}}"/c213-emf/${{env.IMAGE_NAME}}:latest
 
       - name: pushImage
         run: |
-          docker push CPLT_IMAGE_NAME
+          docker push "${{env.REG_NAME}}"/c213-emf/${{env.IMAGE_NAME}}:latest
